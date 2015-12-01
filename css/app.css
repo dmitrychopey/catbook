@@ -41,3 +41,26 @@
     margin: 30px auto;
 }
 
+
+
+.home_callout {background-image: url(../img/bg.jpg); 
+	-moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; 
+margin: 0px;}
+
+.greetings {padding-top: 35px;}
+
+.myname { font-size: 20px;}
+
+.ava{
+  height:330px;
+  width:300px;
+  margin-bottom: 25px;
+}
+
+.user_content{
+  margin-top: 30px;
+  
+}

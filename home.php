@@ -1,4 +1,4 @@
-<div class="callout large">
+<div class="callout large home_callout">
 		<div class="row column text-center">
 			<h1>Merci d’être passé !</h1>
 
@@ -12,10 +12,10 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="medium-6 columns medium-push-6">
-			<img class="thumbnail" src="img/calmcat.jpg">
+		<div class="medium-6 columns medium-push-6 greetings">
+			<img class="thumbnail"  src="img/calmcat.jpg">
 		</div>
-		<div class="medium-6 columns medium-pull-6">
+		<div class="medium-6 columns medium-pull-6 greetings">
 			<h2>Bonjour!</h2>
 			<p>Ce site a été réalisé pour la commodité utilization pour chats du monde entiere!</p>
 		</div>

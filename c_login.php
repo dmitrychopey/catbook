@@ -4,8 +4,9 @@ include_once 'connect.php';
 
 if(isset($_SESSION['user'])!="")
 {
-    header("Location: home.php");
+    header("Location: ?file=home.php");
 }
+
 if(isset($_POST['btn-login']))
 {
     $email = mysql_real_escape_string($_POST['email']);

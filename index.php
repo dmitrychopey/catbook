@@ -13,6 +13,7 @@ include_once 'helper.php';
     <title>Welcome to CatBook</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="shortcut icon" type="img" href="img/favicon.ico"/>
 </head>
 <body>
 <div class="top-bar">
@@ -21,7 +22,27 @@ include_once 'helper.php';
             <ul class="dropdown menu" data-dropdown-menu>
                 <li class="menu-text">Catbook</li>
 
-                <li><a href="?file=home.php">Home</a></li>
+                <li>
+                    <?php
+                    if(isset($_SESSION['user']) != ""){
+                     
+                        
+                        ?>
+                             <a href="?file=mypage.php">MyPage</a>
+                          <?php
+                    }else{
+                        ?>
+                         <a href="?file=home.php">Home</a>
+                       
+                        <?php
+                    }
+                    ?>
+                    
+                  
+                    
+                    
+                    
+                    </li>
                 <li><a href="#">Three</a></li>
                 <li class="has-submenu">
                     <a href="#">Three</a>
@@ -36,16 +57,24 @@ include_once 'helper.php';
         </div>
         <div class="top-bar-right">
             <ul class="menu">
-                <li><a href="#"> <?php if (isset($_SESSION['user']))
+               <?php if (isset($_SESSION['user']) != ""){
 
                             $connect = new PDO("mysql:host=$host;dbname=$dbname", $login, $password);
                             $currentUser = currentUser($_SESSION['user'], $connect);
-                            echo $currentUser['email'];
-
+                               ?>
+                          <li> <a href="#"><?php echo $currentUser['email']; ?> </a> </li>
+                          <li> <a href="?file=c_logout.php">Exit</a></li>
+                          <?php
+                    }else{
                         ?>
-                    </a>
-                </li>
-                <li><a href="">Exit</a> </li>
+                           <li> <a href="?file=login.php">Log in</a></li>
+                        
+                        <?php
+                    }
+                     
+                 ?>
+               
+               
                 <li><input type="search" placeholder="Search"></li>
                 <li>
                     <button type="button" class="button">Search</button>

@@ -1,5 +1,9 @@
-
-
+<?php
+if(isset($_SESSION['user'])!="")
+{
+    header("Location: ?file=home.php");
+}
+?>
 <div class="reg-form text-center">
 <form name="registration" method="post" action="c_registration.php">
   <div class="row">
