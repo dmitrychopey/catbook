@@ -3,6 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 session_start();
 include_once 'helper.php';
+  $connect = new PDO("mysql:host=$host;dbname=$dbname", $login, $password);
 ?>
 
 <!doctype html>
@@ -14,13 +15,14 @@ include_once 'helper.php';
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <link rel="shortcut icon" type="img" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 <div class="top-bar">
     <div class="row">
         <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
-                <li class="menu-text">Catbook</li>
+                <li class="menu-text"><img src="img/logo.ico" class="logo" alt="eror"> Catbook</li>
 
                 <li>
                     <?php
@@ -28,7 +30,7 @@ include_once 'helper.php';
                      
                         
                         ?>
-                             <a href="?file=mypage.php">MyPage</a>
+                             <a href="?file=page.php&id=<?php echo $_SESSION['user'];?>">MyPage</a>
                           <?php
                     }else{
                         ?>
@@ -38,29 +40,19 @@ include_once 'helper.php';
                     }
                     ?>
                     
-                  
-                    
-                    
-                    
                     </li>
-                <li><a href="#">Three</a></li>
-                <li class="has-submenu">
-                    <a href="#">Three</a>
-                    <ul class="submenu menu vertical" data-submenu>
-                        <li><a href="#">One</a></li>
-                        <li><a href="#">Two</a></li>
-                        <li><a href="#">Three</a></li>
-                    </ul>
-                </li>
+               <li><a href="?file=messages.php">Mes messages</a></li>
+                <li><a href="#">Amis</a></li>
+                <li> <a href="?file=last_cats.php">Dernières chats</a></li>
+                
+              
 
             </ul>
         </div>
         <div class="top-bar-right">
             <ul class="menu">
                <?php if (isset($_SESSION['user']) != ""){
-
-                            $connect = new PDO("mysql:host=$host;dbname=$dbname", $login, $password);
-                            $currentUser = currentUser($_SESSION['user'], $connect);
+                            $currentUser = getUser($_SESSION['user'], $connect);
                                ?>
                           <li> <a href="#"><?php echo $currentUser['email']; ?> </a> </li>
                           <li> <a href="?file=c_logout.php">Exit</a></li>
@@ -73,8 +65,6 @@ include_once 'helper.php';
                     }
                      
                  ?>
-               
-               
                 <li><input type="search" placeholder="Search"></li>
                 <li>
                     <button type="button" class="button">Search</button>
@@ -87,7 +77,8 @@ include_once 'helper.php';
 <div class="content">
     <?php
     if (isset($_GET['file'])) {
-        include $_GET['file'];
+        $pieces = explode("&", $_GET['file']);
+        include $pieces[0];
     } else {
         echo "Error! Page not faund";
     }
