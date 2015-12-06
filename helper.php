@@ -41,4 +41,17 @@ function isPersonalPage($id, $sessionId){
     }
 }
 
+
+function getUserMessages($id, $connect){
+    
+     $sql = "SELECT * FROM messages WHERE r_user_id = $id";
+    $sth = $connect->prepare($sql);
+
+    $sth->execute();
+
+    $result = $sth->fetchAll();
+
+    return $result;
+}
+
 ?>

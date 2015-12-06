@@ -1,5 +1,8 @@
 <?php
-
+if(isset($_SESSION['user'])=="")
+{
+    header("Location: ?file=home.php");
+}
 $all_cats = getAllUsers($connect);
 
 ?>

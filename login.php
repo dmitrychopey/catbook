@@ -7,6 +7,8 @@ if(isset($_SESSION['user'])!="")
 {
     header("Location: ?file=home.php");
 }
+
+
 if(isset($_POST['btn-login']))
 {
     $email = $_POST['email'];
@@ -22,7 +24,9 @@ if(isset($_POST['btn-login']))
     if($row['password']==md5($upass))
     {
         $_SESSION['user'] = $row['user_id'];
-        header("Location: ?file=mypage.php");
+        $location = "Location: ?file=page.php&id=".$row['user_id'];
+        
+        header($location);
     }
     else
     {
