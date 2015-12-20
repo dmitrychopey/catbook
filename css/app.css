@@ -81,3 +81,8 @@ margin: 0px;}
 .messages_list{
   margin-top: 35px;
 }
+
+.small_avatar{
+  width: 100px;
+  height: 100px;
+}

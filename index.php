@@ -31,6 +31,7 @@ include_once 'helper.php';
                         
                         ?>
                              <a href="?file=page.php&id=<?php echo $_SESSION['user'];?>">MyPage</a>
+                             
                           <?php
                     }else{
                         ?>
@@ -42,7 +43,7 @@ include_once 'helper.php';
                     
                     </li>
                <li><a href="?file=messages.php">Mes messages</a></li>
-                <li><a href="#">Amis</a></li>
+             
                 <li> <a href="?file=last_cats.php">Dernières chats</a></li>
                 
               
@@ -89,10 +90,27 @@ include_once 'helper.php';
 <hr>
 <div class="row column">
     <ul class="menu">
-        <li><a href="#">One</a></li>
-        <li><a href="#">Two</a></li>
-        <li><a href="#">Three</a></li>
-        <li><a href="#">Four</a></li>
+        <li>
+                    <?php
+                    if(isset($_SESSION['user']) != ""){
+                     
+                        
+                        ?>
+                             <a href="?file=page.php&id=<?php echo $_SESSION['user'];?>">MyPage</a>
+                             
+                          <?php
+                    }else{
+                        ?>
+                         <a href="?file=home.php">Home</a>
+                       
+                        <?php
+                    }
+                    ?>
+                    
+                    </li>
+               <li><a href="?file=messages.php">Mes messages</a></li>
+             
+                <li> <a href="?file=last_cats.php">Dernières chats</a></li>
     </ul>
 </div>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

@@ -20,7 +20,7 @@ $messages = getUserMessages($currentUser['user_id'], $connect);
     
       <div class="media-object">
         <div class="media-object-section">
-            <img class="thumbnail" src="http://placehold.it/200x200">
+            <img class="thumbnail small_avatar" src="http://placehold.it/200x200">
              <a href="?file=message.php&receiver=<?php echo $sender['user_id'];?>" class="button small expanded hollow">Répondre</a>
         </div>
         <div class="media-object-section">

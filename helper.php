@@ -54,4 +54,41 @@ function getUserMessages($id, $connect){
     return $result;
 }
 
+
+function getUserPosts($id, $connect){
+    
+    $sql = "SELECT * FROM posts WHERE r_user_id = $id ORDER BY post_id DESC";
+    $sth = $connect->prepare($sql);
+
+    $sth->execute();
+
+    $result = $sth->fetchAll();
+
+    return $result;
+}
+
+function getUsersPhoto($id, $connect){
+
+  $sql = "SELECT * FROM images WHERE user_id=$id";
+
+    $sth = $connect->prepare($sql);
+
+    $sth->execute();
+
+    $row = $sth->fetch(PDO::FETCH_ASSOC);
+
+    return $row;
+
+}
+
+
+function deleteUsersPhoto($id, $connect){
+    $sql = "DELETE FROM images WHERE user_id=$id";
+
+    $sth = $connect->prepare($sql);
+
+    $sth->execute();
+    
+}
+
 ?>

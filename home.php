@@ -13,7 +13,7 @@
 	</div>
 	<div class="row">
 		<div class="medium-6 columns medium-push-6 greetings">
-			<img class="thumbnail"  src="img/calmcat.jpg">
+			<img class="thumbnail"  src="img/calmcat.jpg" alt="calm">
 		</div>
 		<div class="medium-6 columns medium-pull-6 greetings">
 			<h2>Bonjour!</h2>
