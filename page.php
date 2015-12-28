@@ -23,13 +23,10 @@ $sql = "INSERT INTO posts(s_user_id,r_user_id, text) VALUES($s_user_id,$r_user_i
 $result = $connect->exec($sql);
 
 if ($result) {
-    ?>
-    <script>alert('successfully');</script>
-    <?php
    
 } else {
     ?>
-    <script>alert('error while registering you...');</script>
+    <script>alert('erreur');</script>
 
     <?php
     
